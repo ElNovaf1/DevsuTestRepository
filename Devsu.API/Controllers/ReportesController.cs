@@ -41,5 +41,26 @@ namespace Devsu.API.Controllers
 
         }
 
+        [HttpGet]
+        [Route("api/Reportes/")]
+        public async Task<IActionResult> GetReportMovementsPorNombre([FromQuery] string nombre, [FromQuery(Name = "fechainicio")] DateTime? fechainicio, [FromQuery(Name = "fechafin")] DateTime? fechafin)
+        {
+            try
+            {
+                _Logger.Information("Solicitud de reporte de cliente por nombre " + nombre + " recibida");
+                var result = await _service.GetReporteMovimientosNombreAsync(nombre, fechainicio, fechafin);
+                if (result == null)
+                {
+                    return NotFound("No se encontró registro del cliente");
+                }
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _Logger.Error("Error al generar reporte para cliente por nombre " + nombre + ": " + ex.Message);
+                return BadRequest(ex.Message);
+            }
+
+        }
     }
 }

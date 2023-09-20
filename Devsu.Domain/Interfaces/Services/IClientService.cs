@@ -10,8 +10,8 @@ namespace Devsu.Domain.Interfaces.Services
         //public Task<IList<Cliente>> GetAllAsync();
 
         public Task<Cliente> GetByIdAsync(int Id);
-
         public Task<ReporteMovimientosClienteDTO> GetReporteMovimientosAsync(int id, DateTime? finicio, DateTime? ffin);
+        public Task<ReporteMovimientosClienteDTO> GetReporteMovimientosNombreAsync(string nombre, DateTime? finicio, DateTime? ffin);
         public Task<Cliente> AddAsync(Cliente entity);
         public Task<Cliente> UpdateAsync(int id, Cliente entity);
         public Task<Cliente> PatchAsync(int id,JsonPatchDocument entity);

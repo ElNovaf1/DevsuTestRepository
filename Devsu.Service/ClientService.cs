@@ -50,13 +50,35 @@ namespace Devsu.Service
                         var sMovimientos = await _WorkUnit.Repository<Movimiento>().GetByFilterAsync(x => x.CuentaId == item.Id);
                         item.SaldoActual = sMovimientos.Sum(p => p.Valor);
                         var fMovimientos = await _WorkUnit.Repository<Movimiento>().GetByFilterAsync(x => x.CuentaId == item.Id && (finicio == null || x.Fecha >= finicio) && (ffin == null || x.Fecha <= ffin));
-                        if (fMovimientos.Count() > 0) {
+                        if (fMovimientos.Count() > 0)
+                        {
                             item.TotalCreditos = fMovimientos.Where(p => p.Valor > 0).Sum(p => p.Valor);
                             item.TotalDebitos = fMovimientos.Where(p => p.Valor < 0).Sum(p => p.Valor);
                             item.Movimientos = _mapper.Map<ICollection<DetalleMovimientoDTO>>(fMovimientos!);
                         }
                     }
                     return reportData;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public async Task<ReporteMovimientosClienteDTO> GetReporteMovimientosNombreAsync(string nombre, DateTime? finicio, DateTime? ffin)
+        {
+            try
+            {
+                var sCliente = await _WorkUnit.Repository<Cliente>().GetByFilterAsync(x => x.Nombre == nombre);
+                if (sCliente.Count == 0)
+                {
+                    throw new KeyNotFoundException("No existe registro par el cliente indicado");
+                }
+                else
+                {
+                    var cCliente = sCliente.FirstOrDefault();
+                    return await GetReporteMovimientosAsync(cCliente!.Id, finicio, ffin);
                 }
             }
             catch (Exception ex)
