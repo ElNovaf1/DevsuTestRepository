@@ -1,0 +1,277 @@
+{
+	"info": {
+		"_postman_id": "f58b79bf-0da7-4a6c-a6ea-a8c112128400",
+		"name": "Devsu Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29858735"
+	},
+	"item": [
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "Cliente POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombres\": \"NombrePrueba123\",\r\n  \"direccion\": \"Nicaragua\",\r\n  \"telefono\": \"8745693\",\r\n  \"contraseña\": \"123456\",\r\n  \"edad\": 39,\r\n  \"genero\": \"Masculino\",\r\n  \"estado\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://localhost:7017/api/Clientes/"
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://localhost:7017/api/Clientes/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombres\": \"NombreEditado1\",\r\n  \"direccion\": \"Ciudad Esteli\",\r\n  \"telefono\": \"7984\",\r\n  \"contraseña\": \"3215487\",\r\n  \"edad\": 75,\r\n  \"genero\": \"Masculino\",\r\n  \"estado\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://localhost:7017/api/Clientes/14"
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente PATCH",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n      \"op\": \"replace\",\r\n      \"path\": \"Nombre\",\r\n      \"value\": \"PUTNombreNuevo\"\r\n   },\r\n   {\r\n      \"op\": \"replace\",\r\n      \"path\": \"Genero\",\r\n      \"value\": \"Femenino\"\r\n   },\r\n   {\r\n      \"op\": \"replace\",\r\n      \"path\": \"Edad\",\r\n      \"value\": 19\r\n   },\r\n   {\r\n      \"op\": \"replace\",\r\n      \"path\": \"Direccion\",\r\n      \"value\": \"Nueva Ciudad\"\r\n   },\r\n    {\r\n      \"op\": \"replace\",\r\n      \"path\": \"Telefono\",\r\n      \"value\": \"9999999\"\r\n   },\r\n   {\r\n      \"op\": \"replace\",\r\n      \"path\": \"Estado\",\r\n      \"value\": false\r\n   }\r\n]\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://localhost:7017/api/Clientes/15"
+					},
+					"response": []
+				},
+				{
+					"name": "Cliente DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "https://localhost:7017/api/Clientes/14"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cuenta",
+			"item": [
+				{
+					"name": "Cuenta POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numero\": \"12357\",\r\n  \"tipoCuenta\": \"Ahorro\",\r\n  \"nombreCliente\": \"Norma Romero\",\r\n  \"saldoInicial\": 500,\r\n  \"estado\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://localhost:7017/api/Cuentas"
+					},
+					"response": []
+				},
+				{
+					"name": "Cuenta GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://localhost:7017/api/Cuentas/9"
+					},
+					"response": []
+				},
+				{
+					"name": "Cuenta PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numero\": \"7895\",\r\n  \"tipoCuenta\": \"Amigo\",\r\n  \"nombreCliente\": \"Norma Romero\",\r\n  \"estado\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://localhost:7017/api/Cuentas/6"
+					},
+					"response": []
+				},
+				{
+					"name": "Cuenta PATCH",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n      \"op\": \"replace\",\r\n      \"path\": \"Numero\",\r\n      \"value\": \"987654321\"\r\n   },\r\n   {\r\n      \"op\": \"replace\",\r\n      \"path\": \"TipoCuenta\",\r\n      \"value\": \"Ahorro\"\r\n   },\r\n   {\r\n      \"op\": \"replace\",\r\n      \"path\": \"ClienteId\",\r\n      \"value\": 5\r\n   },\r\n    {\r\n      \"op\": \"replace\",\r\n      \"path\": \"Estado\",\r\n      \"value\": true\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://localhost:7017/api/Cuentas/5"
+					},
+					"response": []
+				},
+				{
+					"name": "Cuenta DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "https://localhost:7017/api/Cuentas/9"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Movimiento",
+			"item": [
+				{
+					"name": "Movimiento POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"numeroCuenta\": \"07281888\",\r\n  \"valor\": -1010\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://localhost:7017/api/Movimientos"
+					},
+					"response": []
+				},
+				{
+					"name": "Movimiento GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://localhost:7017/api/Movimientos/8"
+					},
+					"response": []
+				},
+				{
+					"name": "Movimiento PUT",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n \"valor\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://localhost:7017/api/Movimientos/8"
+					},
+					"response": []
+				},
+				{
+					"name": "Movimiento PATCH",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n   {\r\n      \"op\": \"replace\",\r\n      \"path\": \"Valor\",\r\n      \"value\": 50.00\r\n   }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://localhost:7017/api/Movimientos/8"
+					},
+					"response": []
+				},
+				{
+					"name": "Movimiento DELETE",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": "https://localhost:7017/api/Movimientos/8"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reporte",
+			"item": [
+				{
+					"name": "Reporte GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7017/api/Reportes/1?fechainicio=2023-09-18T01%3A11%3A11Z&fechafin=2023-09-19T18%3A36%3A11Z",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7017",
+							"path": [
+								"api",
+								"Reportes",
+								"1"
+							],
+							"query": [
+								{
+									"key": "fechainicio",
+									"value": "2023-09-18T01%3A11%3A11Z"
+								},
+								{
+									"key": "fechafin",
+									"value": "2023-09-19T18%3A36%3A11Z"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
